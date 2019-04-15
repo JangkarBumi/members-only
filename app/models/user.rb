@@ -1,6 +1,10 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
   has_secure_password
+
+  before_create :remember
+  
+  attr_accessor :remember_token
+
   validates :username, presence: true
   validates :email, presence: true
   validates :password, presence: true, confirmation: true
