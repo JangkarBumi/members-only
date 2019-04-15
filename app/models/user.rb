@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true
 
   before_create do
-   token = SecureRandom.urlsafe_base64 
-   token2 = Digest::SHA1.hexdigest(token.to_s)
+    token = SecureRandom.urlsafe_base64
+    Digest::SHA1.hexdigest(token.to_s)
   end
 end
